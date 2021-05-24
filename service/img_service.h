@@ -2,6 +2,7 @@
 #define __img_SERVICE_H__
 
 #include "img_manager.h"
+#include "typedef.h"
 
 namespace fgtcc {
 

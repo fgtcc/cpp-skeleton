@@ -13,7 +13,7 @@ void GetImageInfo(std::string imgBase64, fgtcc::ImageInfo& info, fgtcc::Error &e
     if (!img.data) {
         err.SetCode(fgtcc::ERR_ERROR);
         da4qi4::log::Server()->error("invalid img data");
-        return false;
+        return;
     }
 
     info.width = img.cols;

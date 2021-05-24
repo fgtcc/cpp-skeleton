@@ -35,7 +35,7 @@ void GetImageInfo(da4qi4::Context ctx) {
     }
 
     fgtcc::ImageInfo info;
-    fgtcc::imgsvc::GetImageInfo(req.imgBase64, &info, err);
+    fgtcc::imgsvc::GetImageInfo(req.imgBase64, info, err);
     fgtcc::GetImageInfoResp resp = {
         width: info.width,
         height: info.height

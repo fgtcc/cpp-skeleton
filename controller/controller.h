@@ -2,7 +2,6 @@
 #define __CONTROLLER_H__
 
 #include "img_service.h"
-#include "typedef.h"
 
 namespace fgtcc {
 
