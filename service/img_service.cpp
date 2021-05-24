@@ -5,10 +5,12 @@ namespace fgtcc {
 namespace imgsvc {
 
 std::string GetOpencvVersion(fgtcc::Error &err) {
+    da4qi4::log::Server()->info("get OpenCV version")
     return imgproc::GetOpencvVersion();
 }
 
-void GetImageInfo(std::string imgBase64, fgtcc::ImageInfo& info, fgtcc::Error &err) {
+void GetImageSizeInfo(std::string imgBase64, fgtcc::ImageSizeInfo& info, fgtcc::Error &err) {
+    da4qi4::log::Server()->info("get image size info")
     cv::Mat img = imgproc::Base2Mat(imgBase64);
     if (!img.data) {
         err.SetCode(fgtcc::ERR_ERROR);

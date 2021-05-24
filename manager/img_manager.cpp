@@ -28,7 +28,6 @@ cv::Mat Base2Mat(std::string &base64_data) {
 }
 
 std::string GetOpencvVersion() {
-	da4qi4::log::Server()->info("get OpenCV version");
 	std::string version = CV_VERSION;
 	return version;
 }

@@ -12,7 +12,7 @@ struct SvcConfig {
     int port;
 };
 
-struct ImageInfo {
+struct ImageSizeInfo {
     int width;
     int height;
 };
@@ -21,11 +21,11 @@ struct GetOpencvVersionResp {
     std::string version;
 };
 
-struct GetImageInfoReq {
+struct GetImageSizeInfoReq {
     std::string imgBase64;
 };
 
-struct GetImageInfoResp {
+struct GetImageSizeInfoResp {
     int width;
     int height;
 };
@@ -38,10 +38,10 @@ DEFINE_STRUCT_SCHEMA(fgtcc::SvcConfig,
 DEFINE_STRUCT_SCHEMA(fgtcc::GetOpencvVersionResp,
                     DEFINE_STRUCT_FIELD(version, "version"));
 
-DEFINE_STRUCT_SCHEMA(fgtcc::GetImageInfoReq,
+DEFINE_STRUCT_SCHEMA(fgtcc::GetImageSizeInfoReq,
                     DEFINE_STRUCT_FIELD(imgBase64, "img_base64"));
 
-DEFINE_STRUCT_SCHEMA(fgtcc::GetImageInfoResp,
+DEFINE_STRUCT_SCHEMA(fgtcc::GetImageSizeInfoResp,
                     DEFINE_STRUCT_FIELD(width, "width"),
                     DEFINE_STRUCT_FIELD(height, "height"));
 

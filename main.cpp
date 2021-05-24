@@ -10,7 +10,7 @@ int main()
     da4qi4::log::Server()->info("serving is running at port: {}", svcCfg.port);
 
     svc->AddHandler(da4qi4::_POST_, "/api/getOpencvVersion", fgtcc::imgctrl::GetOpencvVersion);
-    svc->AddHandler(da4qi4::_POST_, "/api/getImageInfo", fgtcc::imgctrl::GetImageInfo);
+    svc->AddHandler(da4qi4::_POST_, "/api/GetImageSizeInfo", fgtcc::imgctrl::GetImageSizeInfo);
 
     svc->Run();
     da4qi4::log::Server()->info("goodbye!!!");

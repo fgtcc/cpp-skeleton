@@ -5,6 +5,7 @@ namespace fgtcc {
 namespace imgctrl {
 
 void GetOpencvVersion(da4qi4::Context ctx) {
+    da4qi4::log::Server()->info("GetOpencvVersion req");
     fgtcc::Error err;
     std::string version = fgtcc::imgsvc::GetOpencvVersion(err);
     fgtcc::GetOpencvVersionResp resp = {
@@ -16,15 +17,15 @@ void GetOpencvVersion(da4qi4::Context ctx) {
     ctx->Pass();
 }
 
-void GetImageInfo(da4qi4::Context ctx) {
+void GetImageSizeInfo(da4qi4::Context ctx) {
     auto reqBody = ctx->Req().Body();
     // da4qi4::log::Server()->info("Detect req: {}", reqBody);
     auto jsonData = da4qi4::Json::parse(reqBody);
 
     fgtcc::Error err;
-    fgtcc::GetImageInfoReq req;
+    fgtcc::GetImageSizeInfoReq req;
     try {
-        req = jsonData.get<fgtcc::GetImageInfoReq>();
+        req = jsonData.get<fgtcc::GetImageSizeInfoReq>();
     } catch (std::exception& e) {
         err.SetCode(fgtcc::ERR_INVALID_PARAM, e.what());
         da4qi4::log::Server()->error("invalid param when get img info, err: {}", e.what());
@@ -34,9 +35,9 @@ void GetImageInfo(da4qi4::Context ctx) {
         return;
     }
 
-    fgtcc::ImageInfo info;
-    fgtcc::imgsvc::GetImageInfo(req.imgBase64, info, err);
-    fgtcc::GetImageInfoResp resp = {
+    fgtcc::ImageSizeInfo info;
+    fgtcc::imgsvc::GetImageSizeInfo(req.imgBase64, info, err);
+    fgtcc::GetImageSizeInfoResp resp = {
         width: info.width,
         height: info.height
     };
